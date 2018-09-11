@@ -10,5 +10,5 @@ services:
       - "28333:28333"
       - "28332:28332"
     volumes:
-      - /home/nitram/bitcoind/bitcoin.conf:/root/.bitcoin/bitcoin.conf:ro
-      - /home/nitram/.bitcoin/blocks:/root/.bitcoin/blocks/
+      - ./bitcoind/bitcoin.conf:/root/.bitcoin/bitcoin.conf:ro
+#      - /home/nitram/.bitcoin/blocks:/root/.bitcoin/blocks/ # uncomment/adjust if you have all blocks already
