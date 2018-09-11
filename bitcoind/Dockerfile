@@ -8,6 +8,7 @@ ENV DOWNLOAD_URL https://bitcoin.org/bin/bitcoin-core-${VERSION}/${FILENAME}
 
 # Some of this was unabashadly yanked from
 # https://github.com/szyhf/DIDockerfiles/blob/master/bitcoin/alpine/Dockerfile
+# and https://github.com/jamesob/docker-bitcoind
 
 RUN apk update \
   && apk --no-cache add wget tar bash ca-certificates \
