@@ -1,0 +1,14 @@
+version: '3'
+services:
+  btc:
+    build: .
+    image: bitcoind:latest
+    container_name: btc
+    restart: on-failure:5
+    ports:
+      - "8333:8333"
+      - "28333:28333"
+      - "28332:28332"
+    volumes:
+      - /home/nitram/bitcoind/bitcoin.conf:/root/.bitcoin/bitcoin.conf:ro
+      - /home/nitram/.bitcoin/blocks:/root/.bitcoin/blocks/
