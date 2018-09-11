@@ -1,7 +1,7 @@
 version: '3'
 services:
   btc:
-    build: .
+    build: ./bitcoind
     image: bitcoind:latest
     container_name: btc
     restart: on-failure:5
