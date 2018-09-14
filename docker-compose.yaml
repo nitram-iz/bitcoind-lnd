@@ -4,11 +4,20 @@ services:
     build: ./bitcoind
     image: bitcoind:latest
     container_name: btc
-    restart: on-failure:5
+    restart: always
     ports:
       - "8333:8333"
       - "28333:28333"
       - "28332:28332"
     volumes:
       - ./bitcoind/bitcoin.conf:/root/.bitcoin/bitcoin.conf:ro
-#      - /home/nitram/.bitcoin/blocks:/root/.bitcoin/blocks/ # uncomment/adjust if you have all blocks already
+      - /home/nitram/.bitcoin/blocks:/root/.bitcoin/blocks/ # uncomment/adjust if you have all blocks already
+  lnd:
+    build: ./lnd
+    image: lnd:latest
+    container_name: lnd
+    restart: always
+    ports:
+      - "9735"
+    volumes:
+      - ./lnd/lnd.conf:/root/.lnd/lnd.conf:ro
