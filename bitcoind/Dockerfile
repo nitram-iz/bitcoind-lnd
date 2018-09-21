@@ -1,6 +1,6 @@
 FROM alpine
 
-ARG VERSION=0.16.2
+ARG VERSION=0.16.3
 ARG GLIBC_VERSION=2.27-r0
 
 ENV FILENAME bitcoin-${VERSION}-x86_64-linux-gnu.tar.gz
@@ -29,4 +29,4 @@ RUN apk update \
 
 ADD ./bitcoin.conf /root/.bitcoin/bitcoin.conf
 
-CMD bitcoind -conf=/root/.bitcoin/bitcoin.conf -datadir=/root/.bitcoin -printtoconsole -reindex 
+CMD bitcoind -conf=/root/.bitcoin/bitcoin.conf -datadir=/root/.bitcoin -printtoconsole  

@@ -11,13 +11,14 @@ services:
       - "28332:28332"
     volumes:
       - ./bitcoind/bitcoin.conf:/root/.bitcoin/bitcoin.conf:ro
-      - /home/nitram/.bitcoin/blocks:/root/.bitcoin/blocks/ # uncomment/adjust if you have all blocks already
+      - /home/nitram/.bitcoin/:/root/.bitcoin/ # uncomment/adjust if you have all blocks already
   lnd:
     build: ./lnd
     image: lnd:latest
     container_name: lnd
     restart: always
     ports:
-      - "9735"
+      - "9735:9735"
     volumes:
       - ./lnd/lnd.conf:/root/.lnd/lnd.conf:ro
+      - /home/nitram/.lnd:/root/.lnd

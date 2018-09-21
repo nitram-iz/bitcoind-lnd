@@ -8,6 +8,18 @@ ENV PATH=$PATH:$GOPATH/bin
 
 RUN apk add --no-cache git make
 
-RUN go get -d github.com/lightningnetwork/lnd
+RUN go get -d github.com/lightningnetwork/lnd \
+  && cd /go/src/github.com/lightningnetwork/lnd \
+  && make \
+  && make install
 
-RUN while [ true ]; do echo hi; done
+FROM alpine
+
+EXPOSE 9735
+
+COPY --from=builder /go/bin/lncli /bin/
+COPY --from=builder /go/bin/lnd /bin/
+
+RUN apk add --no-cache bash
+
+CMD ["lnd"] 
