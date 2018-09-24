@@ -27,6 +27,4 @@ RUN apk update \
   && rm -rf /bitcoin-${VERSION}-x86_64-linux-gnu.tar.gz \ 
   && apk del tar wget ca-certificates
 
-ADD ./bitcoin.conf /root/.bitcoin/bitcoin.conf
-
 CMD bitcoind -conf=/root/.bitcoin/bitcoin.conf -datadir=/root/.bitcoin -printtoconsole  
